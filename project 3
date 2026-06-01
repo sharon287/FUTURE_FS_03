@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Crumb | Artisanal Neighborhood Bakery</title>
+    <meta name="description" content="Handcrafted sourdough, artisanal pastries, and custom celebration cakes made fresh daily with local ingredients.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bakery: {
+                            50: '#FAF6F0',
+                            100: '#F3EAE0',
+                            600: '#A07144',
+                            700: '#8C6239',
+                            800: '#6F4E2D',
+                            950: '#3D2511',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'ui-serif', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .menu-tab-active {
+            background-color: #8C6239;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-bakery-50 text-gray-800 antialiased">
+
+    <div class="bg-bakery-950 text-bakery-100 text-xs text-center py-2 px-4 font-medium tracking-wider uppercase">
+        🍞 Fresh batches out of the oven every morning at 7:00 AM!
+    </div>
+
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-xl sm:text-2xl font-serif font-black text-bakery-700 tracking-wide">
+                THE DAILY CRUMB
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 font-medium text-gray-600">
+                <a href="#home" class="hover:text-bakery-700 transition-colors">Home</a>
+                <a href="#menu" class="hover:text-bakery-700 transition-colors">Daily Menu</a>
+                <a href="#about" class="hover:text-bakery-700 transition-colors">Our Story</a>
+                <a href="#testimonials" class="hover:text-bakery-700 transition-colors">Reviews</a>
+                <a href="#contact" class="hover:text-bakery-700 transition-colors">Find Us</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="bg-bakery-700 hover:bg-bakery-800 text-white px-4 sm:px-5 py-2.5 rounded-full font-semibold transition-all text-xs sm:text-sm shadow-md hover:shadow-lg">
+                    Order Custom Cake
+                </a>
+                <button id="menu-toggle" class="md:hidden text-bakery-950 focus:outline-none" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3 shadow-inner">
+            <a href="#home" class="block text-gray-700 font-medium py-1">Home</a>
+            <a href="#menu" class="block text-gray-700 font-medium py-1">Daily Menu</a>
+            <a href="#about" class="block text-gray-700 font-medium py-1">Our Story</a>
+            <a href="#testimonials" class="block text-gray-700 font-medium py-1">Reviews</a>
+            <a href="#contact" class="block text-gray-700 font-medium py-1">Find Us</a>
+        </div>
+    </header>
+
+    <section id="home" class="relative min-h-[85vh] flex items-center justify-center bg-bakery-950 text-white py-20 px-4 text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(45, 24, 9, 0.65), rgba(45, 24, 9, 0.65)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600');">
+        <div class="max-w-3xl mx-auto space-y-6">
+            <span class="inline-block bg-bakery-600 text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full">
+                Locally Owned & Handcrafted
+            </span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-bold tracking-tight leading-tight">
+                Freshly Baked, <br class="sm:hidden">Every Single Morning.
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl text-bakery-100 max-w-2xl mx-auto font-light leading-relaxed">
+                Handcrafted sourdough, premium melting donuts, and custom elegant cakes made with locally sourced heritage grains right here in your neighborhood.
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#menu" class="bg-white text-bakery-950 px-8 py-3.5 rounded-full font-bold shadow-lg hover:bg-bakery-100 transition-all text-sm tracking-wide transform hover:-translate-y-0.5">
+                    View Today's Menu
+                </a>
+                <a href="#contact" class="border-2 border-white/80 text-white px-8 py-3.5 rounded-full font-bold hover:bg-white/10 transition-all text-sm tracking-wide">
+                    Find Our Shop
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white border-b border-gray-100 py-10">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="space-y-1">
+                <div class="text-3xl font-bold text-bakery-700 font-serif">100%</div>
+                <div class="text-xs uppercase tracking-wider text-gray-500 font-medium">Organic Flour</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-3xl font-bold text-bakery-700 font-serif">48 hrs</div>
+                <div class="text-xs uppercase tracking-wider text-gray-500 font-medium">Slow Fermentation</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-3xl font-bold text-bakery-700 font-serif">0%</div>
+                <div class="text-xs uppercase tracking-wider text-gray-500 font-medium">Preservatives</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-3xl font-bold text-bakery-700 font-serif">Fresh</div>
+                <div class="text-xs uppercase tracking-wider text-gray-500 font-medium">Baked Daily at 5AM</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="container mx-auto px-4 sm:px-6 py-20">
+        <div class="text-center max-w-xl mx-auto mb-12">
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-bakery-950">From Our Oven to Your Table</h2>
+            <div class="h-1 w-12 bg-bakery-700 mx-auto mt-3 mb-4"></div>
+            <p class="text-gray-600 text-sm sm:text-base">We use zero artificial ingredients. Here is what is fresh on the racks today.</p>
+        </div>
+
+        <div class="flex justify-center space-x-2 md:space-x-4 mb-10 overflow-x-auto pb-2">
+            <button onclick="filterMenu('all')" id="btn-all" class="menu-tab-active px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all shadow-sm whitespace-nowrap border border-bakery-100">All Items</button>
+            <button onclick="filterMenu('breads')" id="btn-breads" class="bg-white text-gray-600 hover:bg-bakery-100 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all shadow-sm whitespace-nowrap border border-bakery-100">Breads</button>
+            <button onclick="filterMenu('pastries')" id="btn-pastries" class="bg-white text-gray-600 hover:bg-bakery-100 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all shadow-sm whitespace-nowrap border border-bakery-100">Pastries</button>
+            <button onclick="filterMenu('cakes')" id="btn-cakes" class="bg-white text-gray-600 hover:bg-bakery-100 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all shadow-sm whitespace-nowrap border border-bakery-100">Custom Cakes</button>
+        </div>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div class="menu-item breads bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
+                <div class="relative overflow-hidden group h-52">
+                    <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=600" alt="Signature Sourdough" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-4 mb-2">
+                            <h3 class="font-serif font-bold text-xl text-bakery-950">Signature Sourdough</h3>
+                            <span class="text-bakery-700 font-bold text-lg whitespace-nowrap">₹320</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">Our signature loaf. Naturally leavened with a 48-hour slow fermentation process for a deep complex flavor and a perfect, crisp crust.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-50 flex items-center justify-between">
+                        <span class="bg-green-50 text-green-700 text-xs px-2.5 py-1 rounded-md font-semibold tracking-wide">Vegan</span>
+                        <span class="text-xs text-gray-400 font-medium">Available Daily</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item pastries bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
+                <div class="relative overflow-hidden group h-52">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600" alt="Artisanal Glazed Donuts" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-4 mb-2">
+                            <h3 class="font-serif font-bold text-xl text-bakery-950">Artisanal Glazed Donuts</h3>
+                            <span class="text-bakery-700 font-bold text-lg whitespace-nowrap">₹150</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">Pillowy soft yeast dough rings fried to golden perfection and coated with our signature pure vanilla bean translucent local sugar glaze.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-50 flex items-center justify-between">
+                        <span class="bg-amber-50 text-amber-800 text-xs px-2.5 py-1 rounded-md font-semibold tracking-wide">Best Seller</span>
+                        <span class="text-xs text-gray-400 font-medium">Available Daily</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item cakes bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
+                <div class="relative overflow-hidden group h-52">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600" alt="Celebration Cakes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-4 mb-2">
+                            <h3 class="font-serif font-bold text-xl text-bakery-950">Custom Celebration Cakes</h3>
+                            <span class="text-bakery-700 font-bold text-sm whitespace-nowrap bg-bakery-100 px-2 py-1 rounded">From ₹1,800</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">Tailored specifically to your milestones. Elegant minimal designs made with rich Swiss meringue buttercream and organic custom cake layers.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-50 flex items-center justify-between">
+                        <span class="bg-purple-50 text-purple-700 text-xs px-2.5 py-1 rounded-md font-semibold tracking-wide">Pre-order Only</span>
+                        <span class="text-xs text-amber-600 font-medium font-semibold">Requires 3 Days Notice</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item breads bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
+                <div class="relative overflow-hidden group h-52">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600" alt="Rustic Olive Focaccia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-4 mb-2">
+                            <h3 class="font-serif font-bold text-xl text-bakery-950">Rustic Olive Focaccia</h3>
+                            <span class="text-bakery-700 font-bold text-lg whitespace-nowrap">₹350</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">Pillowy flatbread dimpled with premium extra virgin olive oil, infused fresh rosemary leaves, and topped with sea salt flakes and Kalamata olives.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-50 flex items-center justify-between">
+                        <span class="bg-green-50 text-green-700 text-xs px-2.5 py-1 rounded-md font-semibold tracking-wide">Vegan</span>
+                        <span class="text-xs text-gray-400 font-medium">Fri / Sat / Sun</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item pastries bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
+                <div class="relative overflow-hidden group h-52">
+                    <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=600" alt="Fresh Fruit Galette Pastry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-4 mb-2">
+                            <h3 class="font-serif font-bold text-xl text-bakery-950">Fresh Fruit Galette Pastry</h3>
+                            <span class="text-bakery-700 font-bold text-lg whitespace-nowrap">₹240</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">A rustic, free-form open pastry crust loaded with slow-roasted seasonal fruits and dusted lightly with crystallized organic brown sugar elements.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-50 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-medium">Available Daily</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bg-white py-20 border-y border-gray-100">
+        <div class="container mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=800" alt="Baker shaping bread dough" class="rounded-2xl shadow-xl z-10 relative object-cover w-full h-[450px]">
+                <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-bakery-100 rounded-2xl -z-0 hidden sm:block"></div>
+            </div>
+            <div class="space-y-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-bakery-600 block">Our Roots</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-bakery-950 leading-tight">Baked with Humility, Grounded in Community</h2>
+                <div class="h-1 w-12 bg-bakery-700"></div>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    Founded in 2018, The Daily Crumb started as a small passion project in a home kitchen with a single oven and passion. Today, we supply our customers with clean, wholesome, completely preservative-free baked goods.
+                </p>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    We partner exclusively with local millers and local dairy farms. By retaining the natural grain bran and avoiding speed-additives, every item on our counter supports local farming while nourishing your family.
+                </p>
+                <blockquote class="border-l-4 border-bakery-700 pl-4 italic text-gray-700 bg-bakery-50 py-3 pr-2 rounded-r-lg font-serif">
+                    "We do not cut corners. If a single batch doesn't meet our standards by dawn, it doesn't cross our counter." 
+                    <span class="block text-xs font-sans not-italic font-bold text-bakery-600 mt-2">— Founder & Head Baker</span>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="container mx-auto px-4 sm:px-6 py-20">
+        <div class="text-center max-w-xl mx-auto mb-16">
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-bakery-950">Loved by the Neighborhood</h2>
+            <div class="h-1 w-12 bg-bakery-700 mx-auto mt-3 mb-4"></div>
+            <p class="text-gray-600 text-sm">Don't take our word for it—here is what your neighbors say.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <div class="flex text-amber-400 space-x-1 mb-4">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-600 text-sm italic leading-relaxed">"The signature pastries are game-changing. It lasts for days on the counter and the crust structure is absolutely incredible."</p>
+                </div>
+                <div class="mt-6 flex items-center space-x-3 pt-4 border-t border-gray-50">
+                    <div class="w-10 h-10 bg-bakery-100 rounded-full flex items-center justify-center font-bold text-bakery-700 text-sm">SR</div>
+                    <div>
+                        <h4 class="font-bold text-sm text-bakery-950">Sara R.</h4>
+                        <p class="text-xs text-gray-400">Verified Local Guide</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <div class="flex text-amber-400 space-x-1 mb-4">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-600 text-sm italic leading-relaxed">"We commissioned a multi-tiered custom vanilla strawberry cake for my daughter's birthday. Not only was it beautiful, but it was incredibly moist and not overwhelmingly sugary."</p>
+                </div>
+                <div class="mt-6 flex items-center space-x-3 pt-4 border-t border-gray-50">
+                    <div class="w-10 h-10 bg-bakery-100 rounded-full flex items-center justify-center font-bold text-bakery-700 text-sm">JM</div>
+                    <div>
+                        <h4 class="font-bold text-sm text-bakery-950">John.</h4>
+                        <p class="text-xs text-gray-400">Local Customer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <div class="flex text-amber-400 space-x-1 mb-4">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-600 text-sm italic leading-relaxed">"You have to get here before 9 AM on Saturdays if you want the donuts. They melt in your mouth. Hands down the best bakery in town."</p>
+                </div>
+                <div class="mt-6 flex items-center space-x-3 pt-4 border-t border-gray-50">
+                    <div class="w-10 h-10 bg-bakery-100 rounded-full flex items-center justify-center font-bold text-bakery-700 text-sm">EL</div>
+                    <div>
+                        <h4 class="font-bold text-sm text-bakery-950">Ravi L.</h4>
+                        <p class="text-xs text-gray-400">Regular Patron</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container mx-auto px-4 sm:px-6 py-12 pb-24">
+        <div class="bg-bakery-950 text-white rounded-3xl overflow-hidden shadow-2xl grid lg:grid-cols-12">
+            
+            <div class="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between space-y-12 bg-neutral-900/40">
+                <div class="space-y-4">
+                    <h2 class="text-3xl font-serif font-bold tracking-tight">Come Say Hello!</h2>
+                    <p class="text-bakery-100 text-sm leading-relaxed font-light">Stop by for a hot artisan loaf or inquire early about custom catering options. We fill up quickly on weekends.</p>
+                </div>
+
+                <div class="space-y-6 text-sm">
+                    <div class="flex items-start">
+                        <span class="text-xl mr-4 mt-0.5">📍</span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider text-xs">Our Location</h4>
+                            <p class="text-bakery-100 mt-1">Bakery Street, Kochi, Kerala</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-xl mr-4 mt-0.5">📞</span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider text-xs">Phone Line</h4>
+                            <p class="text-bakery-100 mt-1">+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-xl mr-4 mt-0.5">⏰</span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider text-xs">Baking Hours</h4>
+                            <p class="text-bakery-100 mt-1">Tuesday – Sunday: 7:00 AM – 3:00 PM</p>
+                            <p class="text-amber-400 text-xs mt-0.5 font-medium">(Or until sold completely out)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full h-40 rounded-xl overflow-hidden grayscale opacity-80 contrast-125 border border-white/10 relative">
+                    <div class="absolute inset-0 bg-neutral-800 flex items-center justify-center p-4 text-center">
+                        <p class="text-xs text-neutral-400">🗺️ Google Maps Interactive View Container</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 bg-white p-8 sm:p-12 text-gray-800 flex flex-col justify-center">
+                <h3 class="text-xl sm:text-2xl font-serif font-bold text-bakery-950 mb-2">Custom Order & Event Requests</h3>
+                <p class="text-gray-500 text-xs sm:text-sm mb-6">Fill out your details below and our pastry team will get back to you within 24 hours.</p>
+                
+                <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Your Full Name</label>
+                            <input type="text" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-bakery-700 focus:bg-white transition-all" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Email Address</label>
+                            <input type="email" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-bakery-700 focus:bg-white transition-all" placeholder="john@example.com">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">What can we bake for you?</label>
+                        <select class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-bakery-700 focus:bg-white transition-all">
+                            <option>Custom Birthday/Event Cake Order</option>
+                            <option>Corporate Catering Order</option>
+                            <option>General Menu Batch Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Event Date & Special Instructions</label>
+                        <textarea required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm h-28 focus:outline-none focus:ring-2 focus:ring-bakery-700 focus:bg-white transition-all resize-none" placeholder="Please list target date, number of guests, and flavor preferences..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-bakery-700 hover:bg-bakery-800 text-white font-bold uppercase tracking-wider text-xs py-4 rounded-xl transition-all shadow-md hover:shadow-lg mt-2">
+                        Submit Order Request
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-bakery-950 text-bakery-100 text-center py-8 border-t border-bakery-900 px-4 text-xs space-y-2">
+        <p class="font-medium font-serif text-sm tracking-wide text-white">THE DAILY CRUMB BAKERY</p>
+        <p class="opacity-60">&copy; 2026 The Daily Crumb. All Rights Reserved. Crafted to support neighborhood tables.</p>
+    </footer>
+
+    <script>
+        // Responsive Menu Toggle Navbar logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Interactive Live Client-Side Menu Filtering logic
+        function filterMenu(category) {
+            const items = document.querySelectorAll('.menu-item');
+            const buttons = ['all', 'breads', 'pastries', 'cakes'];
+            
+            // Clean tabs active styling
+            buttons.forEach(btn => {
+                const el = document.getElementById(`btn-${btn}`);
+                el.classList.remove('menu-tab-active', 'bg-bakery-700', 'text-white');
+                el.classList.add('bg-white', 'text-gray-600');
+            });
+
+            // Add active styling to target button
+            const activeBtn = document.getElementById(`btn-${category}`);
+            activeBtn.classList.add('menu-tab-active');
+            activeBtn.classList.remove('bg-white', 'text-gray-600');
+
+            // Hide/Show items fluidly
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Handle basic dynamic conversion popup on form request submit
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert("✨ Success! Your bakery request inquiry has been logged. Our pastry specialists will review availability and contact you via your email address shortly.");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
